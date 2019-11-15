@@ -24,3 +24,6 @@ hs_err_pid*
 
 # IDEA folder
 .idea
+
+# Target folder
+target
