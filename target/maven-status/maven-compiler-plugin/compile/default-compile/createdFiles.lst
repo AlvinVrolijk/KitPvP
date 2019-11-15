@@ -7,7 +7,6 @@ nl\alvinvrolijk\kitpvp\commands\CreateKitCommand.class
 nl\alvinvrolijk\kitpvp\commands\UpdateKitCommand.class
 nl\alvinvrolijk\kitpvp\listeners\JoinLeaveListener.class
 nl\alvinvrolijk\kitpvp\data\MySQL.class
-nl\alvinvrolijk\kitpvp\KitSelector.class
 nl\alvinvrolijk\kitpvp\data\Kit.class
 nl\alvinvrolijk\kitpvp\commands\CreateArenaCommand.class
 nl\alvinvrolijk\kitpvp\data\Arena.class
@@ -16,6 +15,7 @@ nl\alvinvrolijk\kitpvp\commands\RemoveKitCommand.class
 nl\alvinvrolijk\kitpvp\commands\GetKitCommand.class
 nl\alvinvrolijk\kitpvp\commands\AbstractCommand.class
 nl\alvinvrolijk\kitpvp\data\KitPvpPlayer.class
+nl\alvinvrolijk\kitpvp\utils\KitSelector.class
 nl\alvinvrolijk\kitpvp\commands\RemoveArenaCommand.class
 nl\alvinvrolijk\kitpvp\commands\TemplateCommand.class
 nl\alvinvrolijk\kitpvp\files\ConfigFile.class

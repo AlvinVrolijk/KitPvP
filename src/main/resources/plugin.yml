@@ -21,3 +21,20 @@ commands:
     description: Update a kit
   getkit:
     description: Get a kit
+permissions:
+  kitpvp.command.createarena:
+    default: op
+  kitpvp.command.createkit:
+    default: op
+  kitpvp.command.removearena:
+    default: op
+  kitpvp.command.removekit:
+    default: op
+  kitpvp.command.kitlist:
+    default: op
+  kitpvp.command.arenalist:
+    default: op
+  kitpvp.command.updatekit:
+    default: op
+  kitpvp.command.getkit:
+    default: op
