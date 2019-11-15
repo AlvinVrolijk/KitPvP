@@ -1,0 +1,6 @@
+database:
+  host: 0.0.0.0
+  port: 3306
+  database: kitpvp
+  username: kitpvp
+  password: 'H3LLO'

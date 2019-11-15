@@ -1,0 +1,23 @@
+name: KitPvP
+version: ${project.version}
+main: nl.alvinvrolijk.kitpvp.KitPvP
+api-version: 1.13
+authors: [AlvinDDG]
+description: A simple KitPvP plugin
+commands:
+  createarena:
+    description: Create a new arena
+  createkit:
+    description: Create kit
+  removearena:
+    description: Remove a arena
+  removekit:
+    description: Remove a kit
+  kitlist:
+    description: List of Kits
+  arenalist:
+    description: List of Arena's
+  updatekit:
+    description: Update a kit
+  getkit:
+    description: Get a kit
