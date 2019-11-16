@@ -38,6 +38,7 @@ public class MySQL {
 
                 if (getCurrentConnection() != null && !getCurrentConnection().isClosed()) {
                     instance.logger.info("Database connection successful"); // Send success message
+                    KitPvP.ready = true;
                     Kit.initializeKits(); // Initialize kits
                     Arena.initializeArenas(); // Initialize arena's
                 }
@@ -58,6 +59,7 @@ public class MySQL {
             if ((!connection.isClosed()) || (connection != null)) {
                 // Close connection
                 connection.close();
+                KitPvP.ready = false;
             }
         } catch (SQLException exception) {
             // Print stack trace

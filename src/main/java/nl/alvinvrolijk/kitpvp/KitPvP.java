@@ -1,12 +1,12 @@
 package nl.alvinvrolijk.kitpvp;
 
 import nl.alvinvrolijk.kitpvp.commands.AbstractCommand;
-import nl.alvinvrolijk.kitpvp.data.Arena;
-import nl.alvinvrolijk.kitpvp.data.Kit;
-import nl.alvinvrolijk.kitpvp.data.KitPvpPlayer;
 import nl.alvinvrolijk.kitpvp.data.MySQL;
 import nl.alvinvrolijk.kitpvp.files.ConfigFile;
-import nl.alvinvrolijk.kitpvp.listeners.*;
+import nl.alvinvrolijk.kitpvp.listeners.DeathRespawnListener;
+import nl.alvinvrolijk.kitpvp.listeners.InteractionListener;
+import nl.alvinvrolijk.kitpvp.listeners.InventoryListeners;
+import nl.alvinvrolijk.kitpvp.listeners.JoinLeaveListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 public final class KitPvP extends JavaPlugin {
 
     public static KitPvP kitPvP; // Instance
+
+    public static Boolean ready = false; // Ready boolean
 
     public Logger logger = Logger.getLogger("KitPvP"); // Set console logger
 
