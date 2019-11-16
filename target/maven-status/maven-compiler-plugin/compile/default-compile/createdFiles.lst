@@ -17,7 +17,6 @@ nl\alvinvrolijk\kitpvp\commands\AbstractCommand.class
 nl\alvinvrolijk\kitpvp\data\KitPvpPlayer.class
 nl\alvinvrolijk\kitpvp\utils\KitSelector.class
 nl\alvinvrolijk\kitpvp\commands\RemoveArenaCommand.class
-nl\alvinvrolijk\kitpvp\commands\TemplateCommand.class
 nl\alvinvrolijk\kitpvp\files\ConfigFile.class
 nl\alvinvrolijk\kitpvp\utils\Messages.class
 nl\alvinvrolijk\kitpvp\utils\Scoreboard.class
