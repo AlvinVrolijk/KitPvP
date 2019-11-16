@@ -18,18 +18,16 @@ public class Scoreboard {
     public static void createScoreboard(Player player) {
         Scoreboard helper = Scoreboard.createScore(player); // Create new score
         helper.setTitle("&6&lKitPvP");
-        helper.setSlot(12, "&eby AlvinDDG");
-        helper.setSlot(11, " ");
-        helper.setSlot(10, "&2Kills:");
-        helper.setSlot(9, "&8Loading..."); // Set placeholder
+        helper.setSlot(10, "&6Kills:");
+        helper.setSlot(9, "&eLoading..."); // Set placeholder
         helper.setSlot(8, "  ");
-        helper.setSlot(7, "&2Deaths:");
-        helper.setSlot(6, "&8Loading..."); // Set placeholder
+        helper.setSlot(7, "&6Deaths:");
+        helper.setSlot(6, "&eLoading..."); // Set placeholder
         helper.setSlot(5, "   ");
-        helper.setSlot(4, "&2K/D Ratio:");
-        helper.setSlot(3, "&8Loading..."); // Set placeholder
+        helper.setSlot(4, "&6K/D Ratio:");
+        helper.setSlot(3, "&eLoading..."); // Set placeholder
         helper.setSlot(2, "    ");
-        helper.setSlot(1, "&cplay.example.com");
+        helper.setSlot(1, "&cplay.dusdavidgames.nl");
     }
 
     public static void updateScoreboard(KitPvpPlayer kitPvpPlayer) {
@@ -60,9 +58,9 @@ public class Scoreboard {
             }
 
             // Set data
-            helper.setSlot(9, "&a" + kills); // Update kills
-            helper.setSlot(6, "&a" + deaths); // Update deaths
-            helper.setSlot(3, "&a" + killDeathRatio); // Update kill-death ratio
+            helper.setSlot(9, "&e" + kills); // Update kills
+            helper.setSlot(6, "&e" + deaths); // Update deaths
+            helper.setSlot(3, "&e" + killDeathRatio); // Update kill-death ratio
         }
     }
 
