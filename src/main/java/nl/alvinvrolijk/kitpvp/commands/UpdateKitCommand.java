@@ -14,16 +14,16 @@ public class UpdateKitCommand extends AbstractCommand {
 
     public final void execute(final CommandSender sender, final String[] args) {
         if (args.length == 1) { // Check if there are enough arguments given
-            if (Kit.containsKit(args[0])) {
-                Kit kit = Kit.getKit(args[0]);
-                kit.setItems(((Player) sender).getInventory().getContents());
-                kit.setArmor(((Player) sender).getInventory().getArmorContents());
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6Kit &e" + args[0] + " &6successfully updated"));
+            if (Kit.containsKit(args[0])) { // Check if kit is existing
+                Kit kit = Kit.getKit(args[0]); // Get Kit-object
+                kit.setItems(((Player) sender).getInventory().getContents()); // Set inventory items
+                kit.setArmor(((Player) sender).getInventory().getArmorContents()); // Set armor items
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6Kit &e" + args[0] + " &6successfully updated")); // Inform player
             } else {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.incorrectUsage + "Kit not found"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.incorrectUsage + "Kit not found")); // Inform player
             }
         } else {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.incorrectUsage + "Specify a kit name"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.incorrectUsage + "Specify a kit name")); // Inform player
         }
     }
 }
