@@ -12,6 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.io.IOException;
@@ -49,5 +50,10 @@ public class InventoryListeners implements Listener {
                 }
             }
         }
+    }
+
+    @EventHandler(priority = EventPriority.LOW)
+    public void onFoodLevelChange(FoodLevelChangeEvent e) {
+        e.setCancelled(true); // Cancel hunger
     }
 }

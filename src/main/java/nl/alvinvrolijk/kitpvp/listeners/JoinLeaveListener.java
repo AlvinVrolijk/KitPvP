@@ -26,6 +26,8 @@ public class JoinLeaveListener implements Listener {
 
         e.getPlayer().teleport(e.getPlayer().getWorld().getSpawnLocation().toCenterLocation()); // Teleport player to spawn
         e.getPlayer().getInventory().clear(); // Clear player's inventory
+        e.getPlayer().setHealth(e.getPlayer().getHealthScale()); // Set player's health to max (Heal the player)
+        e.getPlayer().setFoodLevel(20); // Set player's food level to max (Feed the player)
 
         KitPvpPlayer.initializePlayerData(e.getPlayer()); // Initialize player
     }
