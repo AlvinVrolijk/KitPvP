@@ -74,8 +74,14 @@ public class Kit {
         });
     }
 
-    // Retrieve kits from MySQL
     public static void initializeKits() {
+        // Add default kit
+        if (!Kit.containsKit("None")) { // Check if Kit is existing
+            Kit.createKit(new Kit("None", Material.BARRIER, "rO0ABXcEAAAAKXBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBw", "rO0ABXcEAAAABHBwcHA=")); // Create new Kit-object
+            KitPvP.kitPvP.logger.info("Default kit created!"); // Inform console
+        }
+
+        // Retrieve kits from MySQL
         String sql = "SELECT * FROM kits";
         PreparedStatement stmt = null;
         try {
