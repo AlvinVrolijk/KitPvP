@@ -31,10 +31,12 @@ public final class KitPvP extends JavaPlugin {
         AbstractCommand.registerCommands(); // Register commands
 
         // Register listeners
-        Bukkit.getServer().getPluginManager().registerEvents(new DeathRespawnListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new InteractionListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new InventoryListeners(), this);
+        getServer().getPluginManager().registerEvents(new DeathRespawnListener(), this);
+        getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
+        getServer().getPluginManager().registerEvents(new InteractionListener(), this);
+        getServer().getPluginManager().registerEvents(new InventoryListeners(), this);
+
+        getServer().setSpawnRadius(0); // Set spawn radius to 0
 
         logger.info("Plugin enabled"); // Inform console that the plugin is enabled
     }

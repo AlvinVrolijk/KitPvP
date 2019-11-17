@@ -32,6 +32,8 @@ public abstract class AbstractCommand implements CommandExecutor {
         new RemoveArenaCommand();
         new RemoveKitCommand();
         new UpdateKitCommand();
+        new SetSpawnCommand();
+        new SpawnCommand();
     }
 
     public abstract void execute(CommandSender sender, String[] args);

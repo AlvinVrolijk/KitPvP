@@ -15,11 +15,13 @@ import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerPickupArrowEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 public class InteractionListener implements Listener {
 
-    public InteractionListener() {}
+    public InteractionListener() {
+    }
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerInteract(PlayerInteractEvent e) {
@@ -44,8 +46,8 @@ public class InteractionListener implements Listener {
         if (e.getLine(0) != null && e.getLine(0).contains("[KitPvP]")) { // Check if line 0 contains [KitPvP]
             if (Arena.containsArena(e.getLine(1))) { // Check if arena is existing
                 // Color-formatting
-                e.setLine(0, ChatColor.translateAlternateColorCodes('&', "&6&l[KitPvP]"));
-                e.setLine(1, ChatColor.translateAlternateColorCodes('&', "&7" + e.getLine(1)));
+                e.setLine(0, ChatColor.translateAlternateColorCodes('&', "&2&l[KitPvP]"));
+                e.setLine(1, ChatColor.translateAlternateColorCodes('&', "&a" + e.getLine(1)));
             } else {
                 // Set block to AIR and inform player
                 e.getBlock().setType(Material.AIR);
@@ -66,5 +68,11 @@ public class InteractionListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerDropItem(PlayerDropItemEvent e) {
         e.setCancelled(true); // Cancel drop item event
+    }
+
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onPlayerPickupArrow(PlayerPickupArrowEvent e) {
+        e.setCancelled(true); // Cancel pickup arrow event
     }
 }

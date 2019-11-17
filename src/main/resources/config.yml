@@ -4,3 +4,4 @@ database:
   database: kitpvp
   username: kitpvp
   password: 'H3LLO'
+spawn: ""

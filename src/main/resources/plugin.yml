@@ -21,6 +21,10 @@ commands:
     description: Update a kit
   getkit:
     description: Get a kit
+  setspawn:
+    description: Set spawn location
+  spawn:
+    description: Teleport to spawn
 permissions:
   kitpvp.command.createarena:
     default: op
@@ -38,3 +42,7 @@ permissions:
     default: op
   kitpvp.command.getkit:
     default: op
+  kitpvp.command.setspawn:
+    default: op
+  kitpvp.command.spawn:
+    default: true

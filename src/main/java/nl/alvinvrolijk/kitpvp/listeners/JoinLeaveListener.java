@@ -2,6 +2,11 @@ package nl.alvinvrolijk.kitpvp.listeners;
 
 import nl.alvinvrolijk.kitpvp.KitPvP;
 import nl.alvinvrolijk.kitpvp.data.KitPvpPlayer;
+import nl.alvinvrolijk.kitpvp.files.ConfigFile;
+import nl.alvinvrolijk.kitpvp.utils.Messages;
+import nl.alvinvrolijk.kitpvp.utils.Serializiation;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -24,7 +29,19 @@ public class JoinLeaveListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
         e.setJoinMessage(""); // Turn join messages off
 
-        e.getPlayer().teleport(e.getPlayer().getWorld().getSpawnLocation().toCenterLocation()); // Teleport player to spawn
+        ConfigFile configFile = new ConfigFile(KitPvP.kitPvP, false); // Get ConfigFile-object
+        String spawnLocationInConfig = configFile.get().getString("spawn"); // Get string from config
+        if (spawnLocationInConfig != null && !spawnLocationInConfig.equals("")) { // Check if spawn location isn't null and isn't ""
+            Location spawnLocation = Serializiation.getLocationFromString(spawnLocationInConfig); // Get spawn location from config
+            if (spawnLocation != null) { // Check if spawn location is valid
+                e.getPlayer().teleport(spawnLocation); // Teleport player to spawn
+            } else {
+                e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.error + "No spawn set! Let a admin set a spawn with /setspawn")); // Inform player
+            }
+        } else {
+            e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.error + "No spawn set! Let a admin set a spawn with /setspawn")); // Inform player
+        }
+
         e.getPlayer().getInventory().clear(); // Clear player's inventory
         e.getPlayer().setHealth(e.getPlayer().getHealthScale()); // Set player's health to max (Heal the player)
         e.getPlayer().setFoodLevel(20); // Set player's food level to max (Feed the player)
