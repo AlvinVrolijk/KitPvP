@@ -2,7 +2,6 @@ package nl.alvinvrolijk.kitpvp.data;
 
 import nl.alvinvrolijk.kitpvp.KitPvP;
 import nl.alvinvrolijk.kitpvp.utils.Serializiation;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -10,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Kit {
 
@@ -54,8 +54,10 @@ public class Kit {
     }
 
     // Update kits in MySQL
-    public static void saveKits(Kit kit) {
-        Bukkit.getServer().getScheduler().runTaskAsynchronously(KitPvP.kitPvP, () -> {
+    public static void saveKits() {
+        for (Map.Entry<String, Kit> entry : registry.entrySet()) {
+            Kit kit = entry.getValue(); // Get Kit-object
+
             String playerSql = "UPDATE `kits` SET `icon`='" + kit.getIcon().toString() + "',`items`='" + kit.getItems() + "',`armor`='" + kit.getArmor() + "' WHERE name='" + kit.name + "';";
             PreparedStatement playerStmt = null;
             try {
@@ -65,13 +67,12 @@ public class Kit {
             }
             try {
                 if (playerStmt != null) {
-                    // Execute query
-                    playerStmt.executeUpdate();
+                    playerStmt.executeUpdate(); // Execute query
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        });
+        }
     }
 
     public static void initializeKits() {

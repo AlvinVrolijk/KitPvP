@@ -42,6 +42,7 @@ public final class KitPvP extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        
 
         // Save and kick all players
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
