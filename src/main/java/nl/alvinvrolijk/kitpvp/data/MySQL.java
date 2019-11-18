@@ -24,32 +24,30 @@ public class MySQL {
             instance.logger.warning("Specify the database credentials in the config.yml!");
         }
 
-        instance.getServer().getScheduler().runTaskAsynchronously(instance, () -> {
-            // Try establishing a connection
-            try {
-                connection = DriverManager.getConnection("jdbc:mysql://" +
-                                configFile.get().getString("database.host") + ":" +
-                                configFile.get().get("database.port") + "/" +
-                                configFile.get().getString("database.database") + "?autoReconnect=false",
-                        configFile.get().getString("database.username"),
-                        configFile.get().getString("database.password"));
+        // Try establishing a connection
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://" +
+                            configFile.get().getString("database.host") + ":" +
+                            configFile.get().get("database.port") + "/" +
+                            configFile.get().getString("database.database") + "?autoReconnect=false",
+                    configFile.get().getString("database.username"),
+                    configFile.get().getString("database.password"));
 
-                if (!checkTable()) throw new SQLException();
+            if (!checkTable()) throw new SQLException();
 
-                if (getCurrentConnection() != null && !getCurrentConnection().isClosed()) {
-                    instance.logger.info("Database connection successful"); // Send success message
-                    KitPvP.ready = true;
-                    Kit.initializeKits(); // Initialize kits
-                    Arena.initializeArenas(); // Initialize arena's
-                }
-
-            } catch (Exception exception) {
-                // Send error message to console
-                instance.logger.severe("Database connection error");
-                // Print stack trace
-                exception.printStackTrace();
+            if (getCurrentConnection() != null && !getCurrentConnection().isClosed()) {
+                instance.logger.info("Database connection successful"); // Send success message
+                KitPvP.ready = true;
+                Kit.initializeKits(); // Initialize kits
+                Arena.initializeArenas(); // Initialize arena's
             }
-        });
+
+        } catch (Exception exception) {
+            // Send error message to console
+            instance.logger.severe("Database connection error");
+            // Print stack trace
+            exception.printStackTrace();
+        }
     }
 
     // Close connection method
